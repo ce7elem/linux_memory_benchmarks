@@ -5,3 +5,8 @@ ntstore/ntstore_SSE_AVX
 reduc/reduc_SSE_AVX
 store/store_SSE_AVX
 triad/triad_SSE_AVX
+memcpy/memcpy.dSYM/Contents/Info.plist
+memcpy/memcpy.dSYM/Contents/Resources/DWARF/memcpy
+.DS_Store
+pc/pc.dSYM/Contents/Info.plist
+pc/pc.dSYM/Contents/Resources/DWARF/pc
