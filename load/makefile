@@ -17,4 +17,4 @@ load_SSE_AVX_AVX512:
 	$(CC) -DAVX512=1 $(CFLAGS) $(OFLAGS) $(FILES) -o $@ -lm
 
 clean:
-	rm -Rf load_*
+	rm -Rf load_SSE_AVX load_SSE_AVX_AVX512

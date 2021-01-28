@@ -17,4 +17,4 @@ store_SSE_AVX_AVX512:
 	$(CC) -DAVX512=1 $(CFLAGS) $(OFLAGS) $(FILES) -o $@ -lm
 
 clean:
-	rm -Rf store_*
+	rm -Rf store_SSE_AVX store_SSE_AVX_AVX512

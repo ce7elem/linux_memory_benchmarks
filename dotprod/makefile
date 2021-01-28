@@ -17,4 +17,4 @@ dotprod_SSE_AVX_AVX512:
 	$(CC) -DAVX512=1 $(CFLAGS) $(OFLAGS) $(FILES) -o $@ -lm
 
 clean:
-	rm -Rf dotprod_*
+	rm -Rf dotprod_SSE_AVX dotprod_SSE_AVX_AVX512

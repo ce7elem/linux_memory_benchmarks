@@ -17,4 +17,4 @@ reduc_SSE_AVX_AVX512:
 	$(CC) -DAVX512=1 $(CFLAGS) $(OFLAGS) $(FILES) -o $@ -lm
 
 clean:
-	rm -Rf reduc_*
+	rm -Rf reduc_SSE_AVX reduc_SSE_AVX_AVX512

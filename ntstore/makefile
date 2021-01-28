@@ -17,4 +17,4 @@ ntstore_SSE_AVX_AVX512:
 	$(CC) -DAVX512=1 $(CFLAGS) $(OFLAGS) $(FILES) -o $@ -lm
 
 clean:
-	rm -Rf ntstore_*
+	rm -Rf ntstore_SSE_AVX ntstore_SSE_AVX_AVX512

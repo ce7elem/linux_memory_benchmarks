@@ -17,4 +17,4 @@ copy_SSE_AVX_AVX512:
 	$(CC) -DAVX512=1 $(CFLAGS) $(OFLAGS) $(FILES) -o $@ -lm
 
 clean:
-	rm -Rf copy_*
+	rm -Rf copy_SSE_AVX copy_SSE_AVX_AVX512

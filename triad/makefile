@@ -17,4 +17,4 @@ triad_SSE_AVX_AVX512:
 	$(CC) -DAVX512=1 $(CFLAGS) $(OFLAGS) $(FILES) -o $@ -lm
 
 clean:
-	rm -Rf triad_*
+	rm -Rf triad_SSE_AVX triad_SSE_AVX_AVX512
