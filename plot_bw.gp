@@ -6,7 +6,7 @@ set auto x
 
 set key left top
 
-set title "AMD Ryzen7 2700x Zen+ bandwidth (in GiB/s) for a Load benchmark on a single array"
+set title "AMD Ryzen7 2700x Zen+ bandwidth (in GiB/s) for a Load benchmark on a single array".title_
 
 set xlabel "Benchmark variants"
 set ylabel "Bandwidth in GiB/s (higher is better)
@@ -30,7 +30,7 @@ set yrange [0:150]
 # set title "L3 cache"
 # plot "load/load_L3.dat" u 2:xtic(1) t "AMD Ryzen7 2700X"
 
-set title "DRAM"
-plot "load/load_DRAM.dat" u 2:xtic(1) t "AMD Ryzen7 2700X"
+set title "L1 ".title_
+plot "load/load_SSE_AVX_L1.dat.cleaned" u 2:xtic(1) t "AMD Ryzen7 2700X"
 
 unset multiplot
