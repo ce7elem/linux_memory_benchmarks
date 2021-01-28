@@ -4,9 +4,9 @@ source colors.sh
 # environment
 
 CORE_ID=3 # the core id on which the bench is executed
-cpupower -c $CORE_ID frequency-set -f 3.50GHz --governor performance
+#cpupower -c $CORE_ID frequency-set -f 3.50GHz --governor performance
 
-REPETITION=10000
+REPETITION=1000
 
   # 2**10 = Ki ; 2**10**2 = Mi
 declare -A BENCH_ITERATIONS
@@ -22,8 +22,8 @@ function run(){
 
   echo -e "${LIGHTGREEN}*${NOCOLOR} running bench ${GREEN}$bench${NOCOLOR}"
 
-  for iteration in ${MEM_SIZE[@]}; do
-    local size=${bench[$iteration]}
+  for iteration in ${BENCH_ITERATIONS[@]}; do
+    local size=${BENCH_ITERATIONS[$iteration]}
 
     # run the bench
     echo -e "\t${GREEN}>${NOCOLOR}${LIGHTGRAY} \

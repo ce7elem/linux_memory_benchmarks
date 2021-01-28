@@ -6,7 +6,7 @@ set auto x
 
 set key left top
 
-set title title_
+set multiplot layout 1,2 title "Intel Core i7-6700HQ bandwidth (in GiB/s) for the '".title_."' benchmark"
 
 set xlabel xlabel_
 set ylabel ylabel_
@@ -21,6 +21,13 @@ set multiplot layout 2, 2 rowsfirst
 
 set yrange [0:150]
 
-plot dat_src_ u 2:xtic(1) t "Intel Core i7-6700HQ"
+set title "L1 cache"
+plot dir_.bench."_L1.dat" u 2:xtic(1) t "Intel Core i7-6700HQ"
+
+set title "L2 cache"
+plot dir_.bench."_L2.dat" u 2:xtic(1) t "Intel Core i7-6700HQ"
+
+set title "L3 cache"
+plot dir_.bench."_L3.dat" u 2:xtic(1) t "Intel Core i7-6700HQ"
 
 unset multiplot

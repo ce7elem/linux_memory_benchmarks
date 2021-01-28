@@ -7,8 +7,7 @@ for bench in `find . -name "makefile"`; do
   bench=$(dirname $bench)
 
   echo -e "${LIGHTGREEN}*${NOCOLOR} found ${ORANGE}$bench${NOCOLOR}, generating ${GREEN}$bench${NOCOLOR} chart"
-  args=$(getbenchParameters $bench)
 
-  gnuplot -e  ./benchs_conf/${bench}.gp 2> sed -e 's/^/\t/' > charts/$bench.png
+  gnuplot -e "title_=$bench ; dir_=$bench ; bench_=$bench" ./benchs_conf/template.gp 2> sed -e 's/^/\t/' > charts/$bench.png
 
 done;
