@@ -30,7 +30,7 @@ function run(){
 taskset -c $CORE_ID $exe $size $REPETITION > $bench_dir/${bench}_${iteration}.dat \
 ${NOCOLOR}"
 	taskset -c $CORE_ID $exe $size $REPETITION > $bench_dir/${bench}_${iteration}.dat
-  done
+  done | sed -e 's/^/\t/' # indent make's output
 }
 
 
