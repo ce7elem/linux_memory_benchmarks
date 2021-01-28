@@ -12,5 +12,5 @@ pc: $(FILES)
 	$(GCC) $(CFLAGS) $(OFLAGS) $(FILES) -o $@ -lm
 
 clean: pc
-	@clean
-	@rm $<
+	#@clean
+	rm $<
