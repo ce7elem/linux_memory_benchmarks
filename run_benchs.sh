@@ -4,15 +4,19 @@ source colors.sh
 # environment
 
 CORE_ID=3 # the core id on which the bench is executed
-#cpupower -c $CORE_ID frequency-set -f 3.50GHz --governor performance
+cpupower -c $CORE_ID frequency-set --governor performance
 
 REPETITION=1000
 
   # 2**10 = Ki ; 2**10**2 = Mi
+L1=$(( 128 * 2**10 )) 
+L2=$(( 1 * $(( 2**10))**2 )) 
+L3=$(( 6 * $(( 2**10))**2 )) 
+
 declare -A BENCH_ITERATIONS
-BENCH_ITERATIONS["L1"]=$((128 * 2**10))
-BENCH_ITERATIONS["L2"]=$((1 * $(( 2**10))**2))
-#BENCH_ITERATIONS["L3"]=$((6 * $(( 2**10))**2))
+BENCH_ITERATIONS["L1"]=$(( $L1 /2 ))
+BENCH_ITERATIONS["L2"]=$(( $L1 + $L2/2 )) 
+BENCH_ITERATIONS["L3"]=$(( $L1 + $L2 + $L3/2 ))
 # subroutines
 
 function run(){
