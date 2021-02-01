@@ -1,0 +1,5 @@
+
+These results shows once again that L1 is faster than L2, which is faster than L3, this time for store operation only.
+The results are less impressive than the load operations : the differences between the differences between the runs are more similar than for the load test.
+
+An interesting point is here that the \cleanstyle{AVX} instructions are more effective than the \cleanstyle{SSE} ones ; and takes better benefits of the storing advantages of the different caches : the results for the L1 cache are far better than the others with \cleanstyle{AVX} instructions than they are with \cleanstyle{SSE}.

@@ -1,0 +1,8 @@
+
+The result of the copy benchmark are very straightforward : the farther the memory used is from the precursor, the lower is the bandwidth. The measured values are for load and write in memory.\\
+
+The blue bars represent the run where only the L1 cache is used, and the bandwith we measure is in average 70GiB/s for my processor.
+The yellow bars shows a run where the L1 is filled and half of the L2 cache, the difference is striking : only 40GiB/s ; and on the last run, where we filed both L1, L2, and half of the L3 cache, we have 20GiB/s.\\
+
+
+We notice a slight change in the L1 results : the bandwidth is a bit better when \cleanstyle{AVX} instructions are used (almost 20GiB/s). It may be the processor which preferes those instructions than \cleanstyle{SSE}. Anyway, we do not detect this change in the other runs where the others caches are involved.

@@ -1,0 +1,10 @@
+
+The interpretation for this benchmark is even as the previous previous one : the farther the memory used is from the precursor, the lower is the bandwidth. The measured values are also for load and store in the memory, but this time there is an extra operation between registers.\\
+
+The difference of bandwith for this benchmark between the L1 and L2 caches is lower compared to the previous test.\\
+
+We measure a bandwidth of 70GiB/s in average for the L1 cache.
+The L2 performances are a bit lower : only 40GiB/s ; and on the last run, where we filed both L1 and L2, and half of the L3 cache, we have 20GiB/s.\\
+
+
+We notice the same evolution we found in the previous benchmark, but this time for both the L1 and L2 caches : the bandwidth is a bit better when \cleanstyle{AVX} instructions are used. This changes are more visible for the L1 cache : the difference is more than 20GiB/s, where it's only 10GiB/s for the L2.

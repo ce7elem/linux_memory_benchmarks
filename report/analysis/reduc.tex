@@ -1,0 +1,11 @@
+
+In this benchmark again, the most important result is that the more large the vector instruction is, the higher the bandwidth is, and so for all the caches used.
+
+For instance, using \cleanstyle{SSE 128B} instead of \cleanstyle{SSE 16B} instructions triples the bandwidth, whatever the caches used.\\
+
+
+Also, we can see that the \cleanstyle{AVX} instructions are much more effective than \cleanstyle{SSE} ones.
+
+The improvement of "maximizing the length of the vector instructions" is here limited by the caches themselves. L2 and L3 caches reach their maximum bandwidth for the variations \cleanstyle{AVX 64B} to \cleanstyle{256B} around 50GiB/s.
+
+The L1 cache show its bandwidth superiority, and continue rising to almost a 100GiB/s, thanks to the large vectors instructions.

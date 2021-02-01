@@ -1,0 +1,176 @@
+
+%-------------------------------LATEX SYNTAX----------------------------------
+%
+%	enter:				\\, \linebreak, \newline
+%	new page: 			\newpage
+%	tab:				\tab
+%	new section:		\section{name} text
+%	new paragraph		\subsection{name} text	(subsub...section{name} for more layers)
+%	refer:				\nameref{label name}	(place "\label{name}" at the position you want to refer to)
+%	%, &, $, etc:		\%, \&, \$, etc		(these are latex operators, add a "\" to type it as text)
+%	add comment:		\commred{text}, \commblue{text}, \commpurp{text}, \commgreen{text}
+%	bullet points:		\begin{itemize} \item{text} ... \item{text} \end{itemize}
+%	clean code:			\cleancode{text}
+%	idem without indent:\cleanstyle{text}
+%	bold, italic, under:\textbf{text}, textit{text}, \underline{text}
+%	table:				\begin{tabular}{c c c} text \end{tabular}	('&' for tab, '\\' for new line)
+%	
+%	use Google for the rest
+%	
+%------------------------------------------------------------------------------
+
+\documentclass[a4paper]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+%\usepackage{titlesec}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{fancyref}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{scrextend}
+\usepackage{setspace}
+\usepackage{xargs}
+\usepackage{multicol}
+\usepackage{nameref}
+\usepackage[pdftex,dvipsnames]{xcolor}
+\usepackage{sectsty}
+
+
+\usepackage{listings}
+\lstset{
+basicstyle=\ttfamily,
+frame=single
+}
+
+\definecolor{nordBg}{HTML}{dddddd}
+\definecolor{nordFg}{HTML}{2e3440}
+\definecolor{nordBlack}{HTML}{3b4252}
+\definecolor{nordRed}{HTML}{bf616a}
+\definecolor{nordGreen}{HTML}{a3be8c}
+\definecolor{nordYellow}{HTML}{ebcb8b}
+\definecolor{nordBlue}{HTML}{81a1c1}
+\definecolor{nordMagenta}{HTML}{b48ead}
+\definecolor{nordCyan}{HTML}{88c0d0}
+\definecolor{nordWhite}{HTML}{e5e9f0}
+
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\interfootnotelinepenalty=10000
+%\titleformat*{\subsubsection}{\large\bfseries}
+\subsubsectionfont{\large}
+\subsectionfont{\Large}
+\sectionfont{\LARGE}
+\definecolor{cleanOrange}{HTML}{D14D00}
+\definecolor{cleanDark}{HTML}{2E3440}
+\definecolor{cleanYellow}{HTML}{FFFF99}
+\definecolor{cleanBlue}{HTML}{3d0099}
+%\newcommand{\cleancode}[1]{\begin{addmargin}[3em]{3em}\fcolorbox{cleanOrange}{cleanYellow}{\texttt{\textcolor{cleanOrange}{#1}}}\end{addmargin}}
+\newcommand{\cleancode}[1]{\begin{addmargin}[3em]{3em}\texttt{\textcolor{nordBlack}{#1}}\end{addmargin}}
+\newcommand{\cleanstyle}[1]{\text{\textcolor{nordBlack}{\texttt{#1}}}}
+
+\definecolor{red}{HTML}{bf616a}
+\definecolor{blue}{HTML}{d08770}
+\definecolor{OliveGreen}{HTML}{a3be8c}
+\definecolor{Plum}{HTML}{b48ead}
+
+\usepackage[colorinlistoftodos,prependcaption,textsize=footnotesize]{todonotes}
+\newcommandx{\commred}[2][1=]{\textcolor{Red}
+{\todo[textcolor=nordFg,linecolor=red,backgroundcolor=nordBg,bordercolor=red,#1]{\texttt{#2}}}}
+\newcommandx{\commblue}[2][1=]{\textcolor{Blue}
+{\todo[textcolor=nordFg,linecolor=blue,backgroundcolor=nordBg,bordercolor=blue,#1]{\texttt{#2}}}}
+\newcommandx{\commgreen}[2][1=]{\textcolor{OliveGreen}{\todo[textcolor=nordFg,linecolor=OliveGreen,backgroundcolor=nordBg,bordercolor=OliveGreen,#1]{\texttt{#2}}}}
+\newcommandx{\commpurp}[2][1=]{\textcolor{Plum}{\todo[textcolor=nordFg,linecolor=Plum,backgroundcolor=nordBg,bordercolor=Plum,#1]{\texttt{#2}}}}
+
+\usepackage[smartEllipses]{markdown}
+
+%-----------------------------------------BEGIN DOC----------------------------------------
+
+\begin{document}
+
+\pagecolor{nordBg}
+\color{nordFg}
+
+\title{
+\hline \vspace{.3cm}
+{\Huge Measuring/Evaluating the performance of a computer system using benchmarks
+\vspace{.3cm} \hline \vspace{1cm}
+{\large\linebreak\\}}{\Large Computer Architecture project
+\\\linebreak\linebreak}
+\linebreak{\Huge[ISTY]}
+\linebreak{\small - UVSQ, Paris Saclay -\linebreak}}
+\author{\\Olivier Benaben\\
+\\\\
+\\
+\\\\
+\\
+\\
+}
+\date{1 February, 2021}
+\maketitle
+\newpage
+
+%-----------------------------------------ABSTRACT-------------------------------------
+
+%\tableofcontents\label{c}
+%\newpage
+
+%------------------------------------------TEXT--------------------------------------------
+
+%----------------------------------------INTERFACE-----------------------------------------
+
+\section{Introduction}\label{Introduction}%------------------------------
+    This project is about CPU memory benchmark for UNIX systems.
+    
+    The purpose was to run a collection of benchmarks on the cleanest possible system so that the results would not be bloated by other processes.
+    
+    In this way, we may want to kill all unnecessary processes like network deamon, destkop manager \& X server, ...\\
+    
+    A good way to boot on a clean system is to request the \cleanstyle{Grub/rEFInd} to start in text mode.
+    
+    Otherwise, it is possible to kill all GUI instance after the boot : after accessing a new \cleanstyle{tty} by pressing \cleanstyle{Ctrl + At + F2/F3/..}, we are able to terminate the window manager with a \cleanstyle{sudo systemctl stop gdm \# (or kvm, lightdm, ...)}.
+    
+    \vspace{1cm}
+    \tableofcontents
+    
+    %------------------------------
+    
+\newpage
+\section{ \cleanstyle{README} }
+
+\markdownInput{README.md}
+
+
+
+\newpage
+\section{Benchmarks results}%------------------------------
+
+\foreach \x/\benchmark in {copy, dotprod, load, memcpy, ntstore, pc, reduc, store, triad}
+{
+    \subsection{\benchmark}
+    \begin{figure}[htb]
+        \makebox[\textwidth][c]{\includegraphics[scale=.6]{../charts/\benchmark_agg.png}}
+        \caption{\x \space benchmark results (for L1, L2 and L3 caches)}
+    \end{figure}
+    \input{analysis/\benchmark.tex}
+    \newpage
+}
+
+\newpage
+\section{Conclusion}%------------------------------
+
+This project was about benchmarking the CPU memeory on a computer system. All the tests have been run on a linux system.\\
+
+As predicted, we measured that the L1 bandwidth is faster than the L2's, which is faster than the L3's.\\
+
+Also, we have noticed two trends in the instructions used :
+\begin{itemize}
+    \item The larger the instructions register is, the faster the bandwidth will be. This is because vector operations processes multiple data in once, and the more data the CPU can handle in one time, the less operations will be needed.
+    \item \cleanstyle{AVX} instructions seems more efficient than \cleanstyle{SSE} ones, especially for the L1-contained data.
+\end{itemize}
+
+Thanks to this 
+
+\end{document}
